@@ -1,0 +1,52 @@
+{% extends "main_layout.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+<div class="container">
+    <!-- {% if session['loggedin'] %}
+        <div class="alert alert-success">{{ kalimat }}</div>
+        {% endif %} -->
+    <div class="row">            
+        <!-- <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.5705267458372!2d114.57444712927017!3d-3.3152044552689253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de423d48a3dc841%3A0x1821d6c60c5a9a48!2sJasa+Pembuatan+Website+Banjarmasin!5e0!3m2!1sid!2sid!4v1527727490692" width="1046" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div> -->
+        <div class="col-lg-12">
+            <div class="row">
+            {% for product in product %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <a href="#">
+                        <div class="card-img-top"
+                            style="background: url('static/image/product/{{product.category}}/{{product.picture}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                    </a>
+                    <div class="card-body">
+                        <h6><a class="card-title" href="{{ url_for('pemesanan')}}"><b>{{ product.toko}}</b></a></h6>
+                        <h7>Jumlah Printer : {{product.unit}} unit</h7><br>
+                        <h7>Hitam-Putih    : {{product.bw}}/lembar</h7><br>
+                        <h7>berwarna       : {{product.berwarna}}/lembar</h7>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"></small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- <div class="card-deck">
+        {% for product in product %}
+        <div class="card text-left">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.toko }}</h5>
+                <p class="card-text">Jumlah Printer : {{ product.unit }} unit</p>
+                <p class="card-text">Hitam-Putih    : {{ product.bw }} / Lembar</p>
+                <p class="card-text">Berwarna       : {{ product.berwarna }} / Lembar</p>
+                <a href="{{ url_for('pemesanan')}}" class="btn btn-primary">Pesan Di sini</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div> -->
+</div>  
+{% endblock %}
